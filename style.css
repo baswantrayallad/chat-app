@@ -1,0 +1,229 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', monospace;
+  background: #0a0a0a;
+  color: #00ff00;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 255, 0, 0.03) 0px,
+    rgba(0, 255, 0, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #111;
+  border: 2px solid #00ff00;
+  padding: 40px;
+  border-radius: 0;
+  box-shadow: 0 0 20px #00ff00;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: glitch 0.5s ease-out;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.modal-content h2 {
+  color: #00ff00;
+  margin-bottom: 20px;
+  font-size: 28px;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.modal-content p {
+  color: #00ff00;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 15px;
+  background: #000;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s;
+}
+
+.modal-content input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.modal-content button {
+  background: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 15px 30px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.modal-content button:hover {
+  background: #00ff00;
+  color: #000;
+  box-shadow: 0 0 15px #00ff00;
+}
+
+#chatContainer {
+  background: #111;
+  border: 2px solid #00ff00;
+  border-radius: 0;
+  box-shadow: 0 0 20px #00ff00;
+  padding: 30px;
+  max-width: 600px;
+  width: 90%;
+  animation: terminal 0.5s ease-out;
+}
+
+@keyframes terminal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+h1 {
+  color: #00ff00;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  text-shadow: 0 0 10px #00ff00;
+  font-family: 'Courier New', monospace;
+}
+
+#messages {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #00ff00;
+  background: #000;
+  font-family: 'Courier New', monospace;
+}
+
+#messages li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #333;
+  background: #111;
+  color: #00ff00;
+  font-size: 14px;
+}
+
+#messages li:last-child {
+  border-bottom: none;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-container label {
+  font-weight: bold;
+  color: #00ff00;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px;
+  background: #000;
+  border: 1px solid #00ff00;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  transition: box-shadow 0.3s;
+}
+
+.input-container input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff00;
+}
+
+.input-container button {
+  background: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+  padding: 12px 24px;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.input-container button:hover {
+  background: #00ff00;
+  color: #000;
+  box-shadow: 0 0 15px #00ff00;
+}
+
+/* Scrollbar styling */
+#messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#messages::-webkit-scrollbar-track {
+  background: #000;
+}
+
+#messages::-webkit-scrollbar-thumb {
+  background: #00ff00;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+  background: #00aa00;
+}
+  
