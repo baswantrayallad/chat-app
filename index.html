@@ -23,6 +23,9 @@
       const modal = document.getElementById('usernameModal');
       modal.style.display = 'flex';
       document.getElementById('usernameInput').focus();
+      document.getElementById('usernameInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') setUsername();
+      });
     }
 
     function setUsername() {
